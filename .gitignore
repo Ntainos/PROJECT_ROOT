@@ -1,0 +1,13 @@
+# Ignore raw UNSW dataset
+data/
+*!data/README.md  # (optional) allow a small README inside data/
+
+# Ignore big trained models
+models/
+*!models/README.md
+
+# General
+*.joblib
+*.pkl
+*.h5
+*.log

@@ -1,0 +1,17 @@
+# Core numerical / data processing
+numpy
+pandas
+
+# Machine learning (versions pinned for model compatibility)
+scikit-learn==1.6.1
+imbalanced-learn
+
+# Model persistence
+joblib
+
+# REST API + server
+fastapi==0.122.0
+uvicorn==0.38.0
+
+# HTTP client (for eve_to_rest.py)
+requests
