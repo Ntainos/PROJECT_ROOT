@@ -68,7 +68,7 @@ PROJECT_ROOT/
   data/
     UNSW_NB15_training-set.csv
     UNSW_NB15_testing-set.csv
-    ... (other UNSW-like CSVs if needed)
+    suricata_flows_pcap1.csv
 
   logs/
     pcap1/
