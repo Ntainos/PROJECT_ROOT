@@ -45,15 +45,15 @@ python -m venv unswenv
 Your prompt should look like:
 
 (unswenv) PS C:\PROJECT_ROOT>
-
-1.3 Install dependencies
+```
+###1.3 Install dependencies
 
 With the virtualenv activated:
 
 pip install --upgrade pip
 pip install -r requirements.txt
 
-2. Repository structure
+##2. Repository structure
 
 PROJECT_ROOT/
   classify_flows.py          # Offline UNSW CSV classification (Normal / DoS / Other)
@@ -80,7 +80,7 @@ PROJECT_ROOT/
   README.md
   requirements.txt
 
-3. Hierarchical ML model – overview
+##3. Hierarchical ML model – overview
 
 The prediction logic is implemented in ml_inference.py and used by both the CLI and REST server.
 
@@ -110,13 +110,13 @@ Detect whether there is an attack, and
 
 Highlight specifically DoS attacks, which are often operationally important.
 
-4. Offline classification – UNSW CSV → predictions CSV
+##4. Offline classification – UNSW CSV → predictions CSV
 
 Script: classify_flows.py
 
 This is the batch mode, mainly for evaluation / analysis.
 
-4.1 Command
+###4.1 Command
 
 From PROJECT_ROOT:
 
@@ -176,11 +176,11 @@ other_attack       17
 Name: count, dtype: int64
 
 
-5. Suricata integration – REST-based IDS-style pipeline
+##5. Suricata integration – REST-based IDS-style pipeline
 
 In online / IDS-style mode, we rely on Suricata to process network traffic and emit eve.json logs, then pass the flows to our model via HTTP.
 
-5.1 Step 1 – Generate eve.json with Suricata
+###5.1 Step 1 – Generate eve.json with Suricata
 
 Suricata command example (PCAP replay):
 
@@ -193,7 +193,7 @@ This produces an eve.json file under logs\pcap1\ that contains Suricata events, 
 
 The pipeline is similar if Suricata is run live – as long as it writes an eve.json file.
 
-5.2 Step 2 – Start the REST server (FastAPI + Uvicorn)
+###5.2 Step 2 – Start the REST server (FastAPI + Uvicorn)
 
 Script: ml_rest_server.py
 
@@ -209,7 +209,7 @@ GET /health – simple health check
 
 POST /predict_one – classify a single flow
 
-5.2.1 REST API contract
+###5.2.1 REST API contract
 
 Request – POST /predict_one
 
@@ -263,7 +263,7 @@ curl -X POST "http://127.0.0.1:8000/predict_one" \
       }'
 
 
-5.3 Step 3 – Replay Suricata flows to the REST API
+###5.3 Step 3 – Replay Suricata flows to the REST API
 
 Script: eve_to_rest.py
 
@@ -307,11 +307,11 @@ dos:          150
 other_attack: 50
 
 
-6. Putting it all together
+##6. Putting it all together
 
 We now have two usage modes:
 
-6.1 Offline evaluation (dataset-centric)
+###6.1 Offline evaluation (dataset-centric)
 
 Input: UNSW-NB15 CSV files
 
@@ -325,7 +325,7 @@ Predictions CSV with final_label
 
 Summary distribution of normal, dos, other_attack
 
-6.2 IDS-style integration (Suricata-centric)
+###6.2 IDS-style integration (Suricata-centric)
 
 Input: PCAP or live traffic, processed by Suricata into eve.json
 
