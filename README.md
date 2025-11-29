@@ -426,5 +426,3 @@ This gives a complete pipeline that shows:
 * A REST interface suitable for integration with GUI, Suricata wrappers, or other services
 * A practical workflow from raw traffic (PCAP/live) or logs (`eve.json`) to **security-relevant labels**
 
-```
-```
