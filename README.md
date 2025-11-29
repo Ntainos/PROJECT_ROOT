@@ -1,4 +1,4 @@
-````
+```markdown
 # Network Security Analysis – ML + IDS Pipeline
 
 This repository contains a **small but complete IDS-style pipeline** built on top of the **UNSW-NB15** dataset and **Suricata**.
@@ -42,7 +42,7 @@ python -m venv unswenv
 
 # Activate venv
 .\unswenv\Scripts\activate
-````
+```
 
 Your prompt should look like:
 
